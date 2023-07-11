@@ -1,0 +1,6 @@
+---
+- name: "Subir o serviço viacep"
+  docker_compose:
+    project_src: /ansible/roles/viacep/files
+    state: "present"
+...

@@ -1,0 +1,8 @@
+---
+- name: "Implantar aplicação web em container Docker"
+  become: true
+  hosts: "default"
+  roles:
+    - "docker"
+    - "viacep"
+...

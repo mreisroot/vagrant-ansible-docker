@@ -1,0 +1,11 @@
+---
+version: "3.8"
+
+services:
+  viacep:
+    container_name: "viacep-api"
+    image: "viacep"
+    build: .
+    ports:
+      - "8080:80"
+...

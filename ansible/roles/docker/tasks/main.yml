@@ -1,0 +1,35 @@
+---
+- name: "Adicionar o repositório do Docker"
+  shell:
+    cmd: "dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
+
+- name: "Instalar o Docker"
+  dnf:
+    name: "{{ pacotes }}"
+    state: "present"
+
+- name: "Instalar o pip"
+  dnf:
+    name: "python3-pip"
+    state: "present"
+
+- name: "Instalar biblioteca Python do Docker"
+  pip:
+    name: "docker"
+    state: "present"
+
+- name: "Instalar biblioteca Python do Docker Compose"
+  pip:
+    name: "docker-compose"
+    state: "present"
+
+- name: "Iniciar o serviço do Docker"
+  systemd:
+    name: "docker"
+    state: "started"
+
+- name: "Habilitar o serviço do Docker"
+  systemd:
+    name: "docker"
+    enabled: true
+...
